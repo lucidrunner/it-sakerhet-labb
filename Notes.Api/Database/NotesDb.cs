@@ -73,9 +73,10 @@ public class NotesDb : DbContext
 
         if (_secrets != null)
         {
-            users.Add(new User { Username = "Test", Password = _secrets.TestUserPassword });
-            notes.Add(new Note { Id = 1001, Author = "Test", Content = "Husk å kjøpe brød" });
-            notes.Add(new Note { Id = 1002, Author = "Test", Content = "Hva var passordet til databasen igjen?" });
+            //Tar bort test user som alltid laddas, borde kolla om det är dev env och bara ladda den isf
+            // users.Add(new User { Username = "Test", Password = _secrets.TestUserPassword });
+            // notes.Add(new Note { Id = 1001, Author = "Test", Content = "Husk å kjøpe brød" });
+            // notes.Add(new Note { Id = 1002, Author = "Test", Content = "Hva var passordet til databasen igjen?" });
 
             var flagNote = notes[random.Next(0, notes.Count - 1)];
             flagNote.Content = $"You'll never find my secret FLAG: {_secrets.BrokenAccessControl}";

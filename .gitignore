@@ -15,3 +15,8 @@ obj/
 Notes.Api/notes.db
 Notes.Api/notes.db-shm
 Notes.Api/notes.db-wal
+
+# Exempel på möjlig development-fil som bara har lösenordet
+# Borde vara ignorerad men är med för visnings skull 
+# App Settings
+# Notes.Api/appsettings.development.json
