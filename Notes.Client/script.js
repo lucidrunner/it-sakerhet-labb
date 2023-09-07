@@ -8,7 +8,7 @@ const authorization = () => btoa(username + ":" + password);
 const getText = (url, defaultValue, success) => {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
-    request.setRequestHeader('Authorization','Basic ' + authorization());
+    request.setRequestHeader('Authorization', 'Basic ' + authorization());
     request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
             success(request.response);
@@ -33,7 +33,7 @@ const get = (url, defaultValue, success) => getText(url, defaultValue, (json) =>
 const post = (url, data, success, error) => {
     var request = new XMLHttpRequest();
     request.open('POST', url, true);
-    request.setRequestHeader('Authorization','Basic ' + authorization());
+    request.setRequestHeader('Authorization', 'Basic ' + authorization());
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     request.onload = () => {
@@ -58,7 +58,7 @@ const post = (url, data, success, error) => {
 const patch = (url, data, success) => {
     var request = new XMLHttpRequest();
     request.open('PATCH', url, true);
-    request.setRequestHeader('Authorization','Basic ' + authorization());
+    request.setRequestHeader('Authorization', 'Basic ' + authorization());
     request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
 
     request.onload = () => {
@@ -81,7 +81,7 @@ const patch = (url, data, success) => {
 const remove = (url, success) => {
     var request = new XMLHttpRequest();
     request.open('DELETE', url, true);
-    request.setRequestHeader('Authorization','Basic ' + authorization());
+    request.setRequestHeader('Authorization', 'Basic ' + authorization());
 
     request.onload = () => {
         if (request.status >= 200 && request.status < 400) {
@@ -261,7 +261,8 @@ const notesList = document.getElementById('notesList');
 const noteListItem = note => {
     var content = document.createElement('div');
     content.setAttribute('class', 'note-content');
-    content.innerHTML = note.content;
+    //Använd innerText för att undvika att script körs
+    content.innerText = note.content;
 
     var button = document.createElement('button');
     button.setAttribute('type', 'button');
